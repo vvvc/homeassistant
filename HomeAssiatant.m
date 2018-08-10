@@ -134,7 +134,7 @@ cd /etc/systemd/system
 sudo nano homebridge.service
 
 #继续黏贴如下内容，按Ctrl+X键，输入y，保存退出
-开始复制
+开始复制此行不要复制
 [Unit]
 Description=Node.js HomeKit Server 
 After=syslog.target network-online.target
@@ -150,7 +150,7 @@ KillMode=process
 
 [Install]
 WantedBy=multi-user.target
-结束复制
+结束复制此行不要复制
 
 #最后一步设置下homebridge的开机启动
 cd /
