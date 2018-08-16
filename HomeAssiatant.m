@@ -19,28 +19,27 @@ sudo npm install -g n
 sudo n stable
 
 
-
-
 #安装samba
 sudo hassbian-config install samba
 #重启samba
 sudo service smbd restart
+
 
 #安装Mosquitto，这个就是MQTT平台，方便接入第三方设备，比如sonoff等设备
 sudo hassbian-config install mosquitto
 #安装cloud9编辑器
 sudo hassbian-config install cloud9
 
+
+
 #默认数据库建议更换为MariaDB数据库，毕竟好太多
 sudo hassbian-config install mariadb
-
 #新建数据库，回车后会提醒输入密码。密码输错想退格按Ctrl+C结束命令，之后重新执行即可。
 sudo mariadb -u root -p
-
-#新建数据表单，将下面的“用户名”和“密码”手动改成你的，再粘贴进去，回车，如果没设置用户名默认为admin，密码为你自己设置的密码。
+#新建数据表单，先将下面的“user”和“pwd”手动改成你的，再粘贴进去，回车，user可能是admin、root、pi，pwd为自己设置的密码。
 CREATE DATABASE hass_db;
-CREATE USER '用户名'@'localhost' IDENTIFIED BY '密码';
-GRANT ALL PRIVILEGES ON *.* TO '用户名'@'localhost';
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'pwd';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 exit
 #这样MariaDB数据库就装好了
@@ -87,7 +86,7 @@ sudo nano config.json
         "name": "HomeKit",
         "username": "B8:D2:EB:47:4A:71", #树莓派MAC地址，改成你自己的
         "port": 56666,
-        "pin": "123-45-678"
+        "pin": "111-12-222"
     },
     "platforms": [{
         "platform": "HomeAssistant",
@@ -105,7 +104,7 @@ homebridge
 
 #可以试试iphone上家庭添加，看是否出现homebridge，没什么问题了就按Ctrl+C停止homebridge运行
 
-#上面的设置都按照我的步骤，这边就能显示出你设置的pin码或者就是123-45-678
+#上面的设置都按照我的步骤，这边就能显示出你设置的pin码或者就是111-12-222
 #然后就正式启动homebridge服务了，逐行输入如下命令
 cd /
 sudo useradd --system homebridge
