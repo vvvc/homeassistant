@@ -1,4 +1,4 @@
-sudo hassbian-configinstall homeassistant
+sudo hassbian-config install homeassistant
 #如果等待时间过久却没有出现初始界面，可尝试使用以下命令强制初始安装：
 sudo systemctl enable install_homeassistant.service
 sudo systemctl start install_homeassistant.service
