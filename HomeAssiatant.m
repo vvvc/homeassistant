@@ -68,7 +68,8 @@ sudo apt-get install -y nodejs
 
 #安装Homekit依赖包libavahi（一行一行输入回车）
 sudo apt-get -y install libavahi-compat-libdnssd-dev
-sudo npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
+#sudo npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
+sudo npm install -g --unsafe-perm hap-nodejs node-gyp
 
 cd /usr/local/lib/node_modules/homebridge/
 #如果有显示不存在文件夹，替换成 下面一行
